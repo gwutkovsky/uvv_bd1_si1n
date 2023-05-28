@@ -10,9 +10,6 @@ DROP SCHEMA IF EXISTS lojas CASCADE;
 --Comando para criar o usuário "guilherme" e a senha "comoutacao@raiz"--
 CREATE USER guilherme WITH PASSWORD 'computacao@raiz' CREATEDB;
 
-
-
-
 --Comando para criar o banco de dados.--
 CREATE DATABASE       uvv
 
@@ -24,9 +21,6 @@ lc_ctype              'pt_BR.UTF-8'
 
 allow_connections     TRUE;
 
-
-
-
 --Comando para trocar o usuário para guilherme e não pedir a senha.--
 \c 'dbname=uvv user=guilherme password=computacao@raiz'
 
@@ -36,12 +30,8 @@ CREATE SCHEMA lojas AUTHORIZATION guilherme;
 --Comando para alterar o caminho de pesquisa (search path) do usuário "guilherme" para o esquema (schema) "lojas".--
 ALTER USER guilherme SET SEARCH_PATH TO lojas;
 
---para comando para definir o caminho de pesquisa (search path) do usuário.--
+--comando para definir o caminho de pesquisa (search path) do usuário.--
 SET SEARCH_PATH TO lojas,"$user", public;
-
-
-
-
 
 --Comando para criar a tabela produtos--
 CREATE TABLE produtos (
@@ -58,7 +48,6 @@ CREATE TABLE produtos (
 
                 CONSTRAINT produtos_pk           PRIMARY KEY (produto_id)
 );
-
 
 --Comentários da tabela produtos--
 COMMENT ON TABLE  produtos                             IS 'Tabela para inserir as caracteriscas dos produtos da loja';
@@ -81,11 +70,6 @@ COMMENT ON COLUMN produtos.imagem_chatset               IS 'Coluna para inserir 
 
 COMMENT ON COLUMN produtos.imagem_ultima_atualizacao    IS 'Coluna para inserir a data da ultima atualizacao da imagem dos produtos';
 
-
-
-
-
-
 --Comando para criar a tabela lojas--
 CREATE TABLE lojas (
 
@@ -103,8 +87,6 @@ CREATE TABLE lojas (
                 
                 CONSTRAINT lojas_pk                PRIMARY KEY (loja_id)
 );
-
-
 
 --Comentários da tabela lojas--
 COMMENT ON COLUMN lojas.loja_id                 IS 'Coluna para inserir o codigo de identificacao da loja';
@@ -129,12 +111,6 @@ COMMENT ON COLUMN lojas.logo_charset            IS 'Coluna para inserir a logo c
 
 COMMENT ON COLUMN lojas.logo_ultima_atualizacao IS 'Coluna pra inserir a data da ultima atualizacao da logo da loja';
 
-
-
-
-
-
-
 --Comando para criar a tabela estoques--
 CREATE TABLE estoques (
 
@@ -146,8 +122,6 @@ CREATE TABLE estoques (
                 CONSTRAINT estoques_pk              PRIMARY KEY (estoque_id)
 );
 
-
-
 --Comentários da tabela estoques--
 COMMENT ON TABLE estoques                       IS 'Tabela para inserir as informacoes de estoque dos produtos';
 
@@ -158,13 +132,6 @@ COMMENT ON COLUMN estoques.loja_id              IS 'Coluna para inserir o codigo
 COMMENT ON COLUMN estoques.produto_id           IS 'Coluna pra inserir o codigo de identificacao de cada produdo';
 
 COMMENT ON COLUMN estoques.quantidade           IS 'Coluna para inserir a quantidade de cada produto no estoque da loja';
-
-
-
-
-
-
-
 
 --Comando para criar a tabela clientes--
 CREATE TABLE clientes (
@@ -178,9 +145,6 @@ CREATE TABLE clientes (
                 
                 CONSTRAINT clientes_pk           PRIMARY KEY (cliente_id)
 );
-
-
-
 
 --Comentários da tabela clientes--
 COMMENT ON TABLE clientes                      IS 'Tabela para realizar cadastro de clientes';
@@ -197,12 +161,6 @@ COMMENT ON COLUMN clientes.telefone2           IS 'Coluna para inserir o telefon
 
 COMMENT ON COLUMN clientes.telefone3           IS 'Coluna para inserir o telefone do cliente';
 
-
-
-
-
-
-
 --Comando para criar a tabela envios--
 CREATE TABLE envios (
 
@@ -214,8 +172,6 @@ CREATE TABLE envios (
                 
                 CONSTRAINT envios_pk                PRIMARY KEY (envio_id)
 );
-
-
 
 --Comentários da tabela envios--
 COMMENT ON TABLE envios                            IS 'Tabela para inserir as informacoes de envio do produto';
@@ -230,14 +186,6 @@ COMMENT ON COLUMN envios.endereco_entrega          IS 'Coluna para inserir o end
 
 COMMENT ON COLUMN envios.status                    IS 'Coluna para inserir o status do envio do produto';
 
-
-
-
-
-
-
-
-
 --Comando para criar a tabela pedidos--
 CREATE TABLE pedidos (
 
@@ -249,8 +197,6 @@ CREATE TABLE pedidos (
                 
                 CONSTRAINT pedidos_pk               PRIMARY KEY (pedido_id)
 );
-
-
 
 --Comentários da tabela pedidos--
 COMMENT ON TABLE pedidos                        IS 'Tabela para inserir informacoes dos pedidos';
@@ -265,13 +211,6 @@ COMMENT ON COLUMN pedidos.status                IS 'Coluna para inserir o status
 
 COMMENT ON COLUMN pedidos.loja_id               IS 'Coluna para inserir o codigo de identificacao da loja';
 
-
-
-
-
-
-
-
 --Comando para criar a tabela pedidos_itens--
 CREATE TABLE pedidos_itens (
 
@@ -284,9 +223,6 @@ CREATE TABLE pedidos_itens (
                 
                 CONSTRAINT pedidos_itens_pk           PRIMARY KEY (pedido_id, produto_id)
 );
-
-
-
 
 --Comentários da tabela pedidos_itens--
 COMMENT ON TABLE pedidos_itens                          IS 'Tabela para inserir as informacoes dos pedidos';
@@ -302,10 +238,6 @@ COMMENT ON COLUMN pedidos_itens.preco_unitario          IS 'Coluna para inserir 
 COMMENT ON COLUMN pedidos_itens.quantidade              IS 'Coluna para inserir a quantidade de cada produto em cada pedido realizado';
 
 COMMENT ON COLUMN pedidos_itens.envio_id                IS 'Coluna para inserir o codigo de identificacao do envio do produto';
-
-
-
-
 
 --Início da criação das chaves primárias e estrangeiras do banco de dados--
 ALTER TABLE       pedidos_itens                         ADD CONSTRAINT  produtos_pedidos_itens_fk
@@ -379,10 +311,6 @@ REFERENCES pedidos (pedido_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
-
-
-
-
 
 --Início da criação das restrições para o banco de dados--
 ALTER TABLE pedidos
