@@ -11,8 +11,10 @@
 - **SQL Power Architect:** Utilizado para criar o projeto lógico e gerar o script do código.
 - **Emacs:** Utilizado para edição do script e implementação das restrições do banco de dados.
 - **SGBD:** Postgresql
-- **Esquema lógico:** ![perojetologico.jpeg](https://github.com/gwutkovsky/uvv_bd1_si1n/blob/main/pset1/projetologico.jpeg)
+- **Esquema lógico:** 
+ 
+	![perojetologico.jpeg](https://github.com/gwutkovsky/uvv_bd1_si1n/blob/main/pset1/projetologico.jpeg)
 
 ## Implementação do banco de dados no PostgreSQL
 
-Primeiro foi necessário recriar o esquema lógico fornecido pelo professor (Lojas UVV) no **SQL Power Architect** 
+Primeiro foi necessário recriar o esquema lógico fornecido pelo professor (Lojas UVV) no **SQL Power Architect**, após ter feito esse passo, selecionei a opção de gerear um script sql para o **Postgresql** e copiei para um editor de texto (**Emacs**). Dessa forma, comecei a fazer a organização do script, de forma a deixar sua aparência agradável e de melhor compreemção, além de adicionar comentários em todos os processos do código para que sua leitura e identificação das tabelas e colunas ficassem mais simples. Em seguida, salvei o mesmo com o nome de pset1.sql, abri o terminal linux da  máquina virtual e utilizei o comando "psql -U POSTGRES < pset1.sql" para verificar se o código estava funcionando e se existia algum erro, após corrigir todos os erros, comecei a implementar as restrições para o banco de dados pelo editor de texto e rodei novamente o código, corrigi novos erros e salvei.
