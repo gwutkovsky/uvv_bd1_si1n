@@ -11,7 +11,7 @@
 - **SQL Power Architect:** Utilizado para criar o projeto lógico e gerar o script do código.
 - **Emacs:** Utilizado para edição do script e implementação das restrições do banco de dados.
 - **SGBD:** Postgresql
-- **Esquema lógico:** Lojas uvv
+- **Esquema lógico:** ![perojetologico.jpeg](https://github.com/gwutkovsky/uvv_bd1_si1n/blob/main/pset1/projetologico.jpeg)
 
 ## Implementação do banco de dados no PostgreSQL
 
